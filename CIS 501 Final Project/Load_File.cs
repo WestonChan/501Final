@@ -22,6 +22,7 @@ namespace CIS_501_Final_Project
                 while (line != null)
                 {
                     line = sr.ReadLine().Split(',');
+
                 }
             }
         }
