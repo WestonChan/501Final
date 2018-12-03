@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace CIS_501_Final_Project
 {
-    using System.Collections;
-    class Semester
+    class Instructor
     {
-        ArrayList sects;
-
-        
+        string Name;
     }
 }
