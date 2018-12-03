@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 namespace CIS_501_Final_Project
 {
     using System.Collections;
-    class Semester
+    class Course
     {
-        ArrayList sects;
+        string Subject;
+        int CatalogNbr;
+        string ClassDescr;
 
-        
+        ArrayList Sections;
     }
 }
