@@ -13,6 +13,7 @@ namespace CIS_501_Final_Project
 {
     public partial class Form1 : Form
     {
+        Presenter p;
         public Form1()
         {
             InitializeComponent();
@@ -27,9 +28,7 @@ namespace CIS_501_Final_Project
             {
                 if (uxOpenDialog.ShowDialog() == DialogResult.OK)
                 {
-                    using (StreamReader sr = new StreamReader(uxOpenDialog.FileName))
-                    {
-                    }
+                    p.executeLoad(uxOpenDialog.FileName);
                 }
             }
             catch (Exception ex) { MessageBox.Show("Bad File"); }
