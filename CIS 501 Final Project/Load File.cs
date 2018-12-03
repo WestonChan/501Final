@@ -7,14 +7,13 @@ using System.IO;
 
 namespace CIS_501_Final_Project
 {
-    class Load_File
+    class Load_File : CSV_Operations
     {
         public Load_File(string filename)
         {
-            execute(filename);
-
+            Execute(filename);
         }
-        private void execute(string s)
+        private void Execute(string s)
         {
             using (StreamReader sr = new StreamReader(s))
             {

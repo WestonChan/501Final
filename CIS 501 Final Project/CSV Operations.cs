@@ -8,5 +8,12 @@ namespace CIS_501_Final_Project
 {
     class CSV_Operations
     {
+        public CSV_Operations()
+        {
+
+        }
+
+        public void Execute() { }
+        public void Finish() { }
     }
 }
