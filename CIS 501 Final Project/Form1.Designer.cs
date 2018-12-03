@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.uxOpenMenu = new System.Windows.Forms.MenuStrip();
             this.uxFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uxOpenFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.uxVerify = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.uxOpenDialog = new System.Windows.Forms.OpenFileDialog();
             this.uxClear = new System.Windows.Forms.Button();
             this.uxReload = new System.Windows.Forms.Button();
             this.uxLabelLocal = new System.Windows.Forms.Label();
@@ -40,35 +41,41 @@
             this.uxLocalPath = new System.Windows.Forms.TextBox();
             this.uxKSISPath = new System.Windows.Forms.TextBox();
             this.uxText = new System.Windows.Forms.TextBox();
-            this.verifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.uxOpenMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // uxOpenMenu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.uxOpenMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.uxFile,
             this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "uxMenuStrip";
+            this.uxOpenMenu.Location = new System.Drawing.Point(0, 0);
+            this.uxOpenMenu.Name = "uxOpenMenu";
+            this.uxOpenMenu.Size = new System.Drawing.Size(800, 24);
+            this.uxOpenMenu.TabIndex = 0;
             // 
             // uxFile
             // 
             this.uxFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.verifyToolStripMenuItem});
+            this.uxOpenFile,
+            this.uxVerify});
             this.uxFile.Name = "uxFile";
             this.uxFile.Size = new System.Drawing.Size(37, 20);
             this.uxFile.Text = "File";
             // 
-            // openToolStripMenuItem
+            // uxOpenFile
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.openToolStripMenuItem.Text = "Load Local";
+            this.uxOpenFile.Name = "uxOpenFile";
+            this.uxOpenFile.Size = new System.Drawing.Size(180, 22);
+            this.uxOpenFile.Text = "Load Local";
+            this.uxOpenFile.Click += new System.EventHandler(this.uxOpenFile_Click);
+            // 
+            // uxVerify
+            // 
+            this.uxVerify.Name = "uxVerify";
+            this.uxVerify.Size = new System.Drawing.Size(180, 22);
+            this.uxVerify.Text = "Verify";
+            this.uxVerify.Click += new System.EventHandler(this.uxVerify_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -76,9 +83,9 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // openFileDialog1
+            // uxOpenDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.uxOpenDialog.FileName = "uxOpenDialog";
             // 
             // uxClear
             // 
@@ -88,6 +95,7 @@
             this.uxClear.TabIndex = 1;
             this.uxClear.Text = "Clear";
             this.uxClear.UseVisualStyleBackColor = true;
+            this.uxClear.Click += new System.EventHandler(this.uxClear_Click);
             // 
             // uxReload
             // 
@@ -97,6 +105,7 @@
             this.uxReload.TabIndex = 2;
             this.uxReload.Text = "Reload";
             this.uxReload.UseVisualStyleBackColor = true;
+            this.uxReload.Click += new System.EventHandler(this.uxReload_Click);
             // 
             // uxLabelLocal
             // 
@@ -139,12 +148,6 @@
             this.uxText.Size = new System.Drawing.Size(776, 387);
             this.uxText.TabIndex = 7;
             // 
-            // verifyToolStripMenuItem
-            // 
-            this.verifyToolStripMenuItem.Name = "verifyToolStripMenuItem";
-            this.verifyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.verifyToolStripMenuItem.Text = "Verify";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,12 +160,12 @@
             this.Controls.Add(this.uxLabelLocal);
             this.Controls.Add(this.uxReload);
             this.Controls.Add(this.uxClear);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.uxOpenMenu);
+            this.MainMenuStrip = this.uxOpenMenu;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.uxOpenMenu.ResumeLayout(false);
+            this.uxOpenMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,18 +173,18 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip uxOpenMenu;
         private System.Windows.Forms.ToolStripMenuItem uxFile;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uxOpenFile;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog uxOpenDialog;
         private System.Windows.Forms.Button uxClear;
         private System.Windows.Forms.Button uxReload;
         private System.Windows.Forms.Label uxLabelLocal;
         private System.Windows.Forms.Label uxLabelKSIS;
         private System.Windows.Forms.TextBox uxLocalPath;
         private System.Windows.Forms.TextBox uxKSISPath;
-        private System.Windows.Forms.ToolStripMenuItem verifyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uxVerify;
         private System.Windows.Forms.TextBox uxText;
     }
 }
