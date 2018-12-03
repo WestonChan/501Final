@@ -10,7 +10,5 @@ namespace CIS_501_Final_Project
     class Semester
     {
         ArrayList sects;
-
-        
     }
 }
