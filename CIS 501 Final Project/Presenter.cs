@@ -9,10 +9,12 @@ namespace CIS_501_Final_Project
 {
     class Presenter
     {
-        ArrayList opera = new ArrayList();
+        Semester local;
+        Semester ksis;
         Presenter thePresenter;
         private Presenter()
         {
+
         }
         public Presenter instance()
         {

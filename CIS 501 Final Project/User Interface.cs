@@ -8,5 +8,9 @@ namespace CIS_501_Final_Project
 {
     class User_Interface
     {
+        public void ShowUser(string text)
+        {
+
+        }
     }
 }
