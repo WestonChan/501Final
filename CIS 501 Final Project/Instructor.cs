@@ -8,6 +8,9 @@ namespace CIS_501_Final_Project
 {
     class Instructor
     {
-        string Name;
+      /*  randomemethodhere(Section section)
+        {
+        }
+        */
     }
 }

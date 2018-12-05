@@ -8,7 +8,9 @@ namespace CIS_501_Final_Project
 {
     class Facility
     {
-        string Building;
-        int Room;
+        /*  randomemethodhere(Section section)
+        {
+        }
+        */
     }
 }

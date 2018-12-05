@@ -9,6 +9,8 @@ namespace CIS_501_Final_Project
     using System.Collections;
     class Semester
     {
-        ArrayList sects;
+        public string Name;
+        public int Year;
+        public Section section;
     }
 }
