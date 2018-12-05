@@ -21,9 +21,11 @@ namespace CIS_501_Final_Project
         public int UnitsMax;
         public string ClassAssnComponent;
 
-        public Section(string SectionNumber, string Consent, int EnrlCap,string TopicDescr,string MeetingStartDt,
-            string MeetingEndDt,string MeetingTimeStart,string MeetingTimeEnd,bool[] Days,int UnitsMin,
-            int UnitsMax,string ClassAssnComponent)
+        Instructor teach;
+
+        public Section(string SectionNumber, string Consent, int EnrlCap, string TopicDescr, string MeetingStartDt,
+            string MeetingEndDt, string MeetingTimeStart, string MeetingTimeEnd, bool[] Days, int UnitsMin,
+            int UnitsMax, string ClassAssnComponent, Instructor i)
         {
             this.SectionNumber = SectionNumber;
             this.Consent = Consent;
@@ -37,6 +39,9 @@ namespace CIS_501_Final_Project
             this.UnitsMin = UnitsMin;
             this.UnitsMax = UnitsMax;
             this.ClassAssnComponent = ClassAssnComponent;
-    }
+
+            teach = i;
+            i.AddSection(this);
+        }
     }
 }
