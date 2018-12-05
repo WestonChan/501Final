@@ -11,27 +11,20 @@ namespace CIS_501_Final_Project
     {
         Semester local;
         Semester ksis;
-        Presenter thePresenter;
-        private Presenter()
+        CSV_Operations op = new CSV_Operations();
+        UserInterface ui;
+        public Presenter(UserInterface ui)
         {
-
+            this.ui = ui;
         }
-        public Presenter instance()
+        public void loadLocal(string filename)
         {
-            if (thePresenter == null)
-                thePresenter = new Presenter();
-            return thePresenter;
+            try {
+                new LoadFile(filename, out local);
+                ui.ShowLocalFilename(filename);
+            }
+            catch (Exception) {ui.ShowUser("Bad File"); }
+            
         }
-        public void executeLoad(string filename)
-        {
-            Load_File f = new Load_File(filename);
-            opera.Add(f);
-        }
-        public void finishLoad(Load_File f)
-        {
-            opera.Remove(f);
-            //do View things
-        }
-
     }
 }
