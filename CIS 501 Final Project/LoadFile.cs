@@ -35,10 +35,16 @@ namespace CIS_501_Final_Project
                     int CatalogNbr = Convert.ToInt32(tokens[1]);
                     string ClassDescr = tokens[2];
                     //Instructor
-                    string Instructor = tokens[4] + tokens[5];
-                    Instructor = Instructor.Substring(1, Instructor.Length - 2);
+                    string InstructorName = tokens[4] + tokens[5];
+                    InstructorName = InstructorName.Substring(1, InstructorName.Length - 2);
                     //Facility
-                    string FacilityId = tokens[11];
+                    string Building = "";
+                    int Room = -1;
+                    for(int i = 0; i < tokens[11].Length; i++)
+                        if (Char.IsDigit(tokens[11][i])) Building += tokens[11][i];
+                        else if (Room == -1)
+                            Room = Convert.ToInt32(tokens[11].Substring(i));
+                    if (Room == -1) Room = 0;
                     //Section
                     string Section = tokens[3];
                     string Consent = tokens[6];
@@ -56,14 +62,30 @@ namespace CIS_501_Final_Project
                     string ClassAssnComponent = tokens[23];
                     line = sr.ReadLine();
 
-                    Section Sect = new Section(SectionNumber, Consent, EnrlCap, TopicDescr, MeetingStartDt, MeetingEndDt,
-                        MeetingTimeStart, MeetingTimeEnd, Days, UnitsMin, UnitsMax, ClassAssnComponent);
+                    Course tempCourse = null;
+                    Instructor tempInstructor = null;
+                    Facility tempFacility = null;
 
+                    //Find the Course indicated from file
+                    foreach (Course c in Courses)
+                        if (!exists && c.Subject.Equals(Subject) && c.CatalogNbr == CatalogNbr && c.ClassDescr.Equals(ClassDescr)) { exists = true; tempCourse = c; }
+                    if (!exists) tempCourse = new Course(Subject, CatalogNbr, ClassDescr);
+                    exists = false;
 
-                    foreach(Course c in Courses)
-                    {
-                        if()
-                    }
+                    //Find the Instructor indicated from file
+                    foreach (Instructor i in Instructors)
+                        if (!exists && i.Name.Equals(InstructorName)) { exists = true; tempInstructor = i; }
+                    if (!exists) tempInstructor = new Instructor(InstructorName);
+                    exists = false;
+
+                    //Find the Facility indicated from file
+                    foreach (Facility f in Facilities)
+                        if (!exists && f.Building.Equals(Building) && f.Room == Room) { exists = true; tempFacility = f; }
+                    if (!exists) tempFacility = new Facility(Building, Room);
+
+                    //Create a Section
+                    Section Sect = new Section(Section, Consent, EnrlCap, TopicDescr, MeetingStartDt, MeetingEndDt,
+                        MeetingTimeStart, MeetingTimeEnd, Days, UnitsMin, UnitsMax, ClassAssnComponent, tempInstructor, tempFacility, newSem, tempCourse);
                 }
                 local = newSem;
             }

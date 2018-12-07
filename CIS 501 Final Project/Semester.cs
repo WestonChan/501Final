@@ -11,7 +11,7 @@ namespace CIS_501_Final_Project
     {
         public string Name;
         public int Year;
-        public ArrayList Sections = new ArrayList();
+        public ArrayList Schedule = new ArrayList();
 
         public Semester(string Name, int Year)
         {

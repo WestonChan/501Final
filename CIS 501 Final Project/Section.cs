@@ -47,6 +47,11 @@ namespace CIS_501_Final_Project
             this.Place = Place;
             this.Sem = Sem;
             this.Cor = Cor;
+
+            Teach.Sections.Add(this);
+            Place.Sections.Add(this);
+            Sem.Schedule.Add(this);
+            Cor.Sections.Add(this);
         }
     }
 }
