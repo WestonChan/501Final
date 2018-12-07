@@ -17,14 +17,24 @@ namespace CIS_501_Final_Project
         {
             this.ui = ui;
         }
-        public void loadLocal(string filename)
+        public void LoadLocal(string filename)
         {
             try {
                 new LoadFile(filename, out local);
                 ui.ShowLocalFilename(filename);
             }
-            catch (Exception) {ui.ShowUser("Bad File"); }
+            catch (Exception) { ui.ShowUser("Bad File"); }
             
+        }
+
+        public void Verify(string filename)
+        {
+            try
+            {
+                new Verify(filename, out ksis);
+                ui.ShowKsisFilename(filename);
+            }
+            catch(Exception) { ui.ShowUser("Bad File"); }
         }
     }
 }
