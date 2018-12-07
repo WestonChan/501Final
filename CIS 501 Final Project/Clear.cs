@@ -8,5 +8,10 @@ namespace CIS_501_Final_Project
 {
     class Clear
     {
+        public Clear(out Semester local, out Semester ksis)
+        {
+            local = null;
+            ksis = null;
+        }
     }
 }
