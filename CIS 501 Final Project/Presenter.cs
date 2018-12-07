@@ -11,8 +11,16 @@ namespace CIS_501_Final_Project
     {
         Semester local;
         Semester ksis;
+
+        Load load;
+        Verify verify;
+        Reload reload;
+        Clear clear;
+        About about;
+
         string verifystr;
         UserInterface ui;
+
         public Presenter(UserInterface ui)
         {
             this.ui = ui;
@@ -20,7 +28,8 @@ namespace CIS_501_Final_Project
         public void LoadLocal(string filename)
         {
             try {
-                new LoadFile(filename, out local);
+                load = new Load();
+                local = load.Execute(filename);
                 ui.ShowLocalFilename(filename);
             }
             catch (Exception) { ui.ShowUser("Bad Local File"); }
@@ -31,11 +40,12 @@ namespace CIS_501_Final_Project
         {
             try
             {
-                new LoadFile(filename, out ksis);
+                verify = new Verify(local, ksis);
+                string vstr = verify.Execute();
                 if (local != null && ksis != null)
                 {
-                    new Verify(local, ksis, out verifystr);
                     ui.ShowKsisFilename(filename);
+                    ui.ShowVerify(vstr);
                 }
             }
             catch(Exception) { ui.ShowUser("Bad KSIS File"); }
@@ -56,7 +66,8 @@ namespace CIS_501_Final_Project
 
         public void About()
         {
-            new About(out string[] versions);
+            about = new About();
+            string[] versions = about.Execute();
             string version = versions[0];
             string versionDate = versions[1];
             ui.DisplayVersions(version, versionDate);

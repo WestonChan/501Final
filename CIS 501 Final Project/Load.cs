@@ -8,14 +8,19 @@ using System.Collections;
 
 namespace CIS_501_Final_Project
 {
-    class LoadFile
+    class Load
     {
-        public LoadFile(string filename, out Semester Sem)
+        public Load()
+        {
+            
+        }
+
+        public Semester Execute (string filename)
         {
             using (StreamReader sr = new StreamReader(filename))
             {
                 string line = sr.ReadLine();
-                string[] tokens = line.Split(new char[]{' ', ','});
+                string[] tokens = line.Split(new char[] { ' ', ',' });
                 Semester newSem = new Semester(tokens[0], Convert.ToInt32(tokens[1]));
 
                 //Get to first line
@@ -25,7 +30,7 @@ namespace CIS_501_Final_Project
                 ArrayList Instructors = new ArrayList();
                 ArrayList Facilities = new ArrayList();
                 bool exists = false;
-                
+
                 while (line != null)
                 {
                     //Course
@@ -66,7 +71,7 @@ namespace CIS_501_Final_Project
                     Course tempCourse = null;
                     Instructor tempInstructor = null;
                     Facility tempFacility = null;
-                    
+
                     //Find the Course indicated from file
                     foreach (Course c in Courses)
                         if (!exists && c.Subject.Equals(Subject) && c.CatalogNbr == CatalogNbr && c.ClassDescr.Equals(ClassDescr)) { exists = true; tempCourse = c; }
@@ -88,7 +93,7 @@ namespace CIS_501_Final_Project
                     Section Sect = new Section(Section, Consent, EnrlCap, TopicDescr, MeetingStartDt, MeetingEndDt,
                         MeetingTimeStart, MeetingTimeEnd, Days, UnitsMin, UnitsMax, ClassAssnComponent, tempInstructor, tempFacility, newSem, tempCourse);
                 }
-                Sem = newSem;
+                return newSem;
             }
         }
     }
