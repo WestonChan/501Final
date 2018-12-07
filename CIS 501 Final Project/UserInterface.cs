@@ -62,14 +62,10 @@ namespace CIS_501_Final_Project
         {
             uxLocalPath.Text = path;
         }
-        public void ShowKsisFilename(string path)
-        {
-            uxKsisPath.Text = path;
-        }
-
-        public void ShowVerify(string vstr)
+        public void ShowVerify(string vstr, string path)
         {
             uxText.Text = uxText.Text + vstr + Environment.NewLine;
+            uxKsisPath.Text = path;
         }
         public void ShowReload()
         {

@@ -23,7 +23,7 @@ namespace CIS_501_Final_Project
 
         public bool Equals(Course other)
         {
-            return Subject == other.Subject && CatalogNbr == other.CatalogNbr && ClassDescr == other.ClassDescr;
+            return Subject.Equals(other.Subject) && CatalogNbr == other.CatalogNbr && ClassDescr.Equals(other.ClassDescr);
         }
 
         public override string ToString()

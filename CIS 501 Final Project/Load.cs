@@ -10,14 +10,14 @@ namespace CIS_501_Final_Project
 {
     class Load
     {
-        public Load()
+        string Filename;
+        public Load(string Filename)
         {
-            
+            this.Filename = Filename;
         }
-
-        public Semester Execute (string filename)
+        public Semester Execute()
         {
-            using (StreamReader sr = new StreamReader(filename))
+            using (StreamReader sr = new StreamReader(Filename))
             {
                 string line = sr.ReadLine();
                 string[] tokens = line.Split(new char[] { ' ', ',' });
@@ -30,7 +30,6 @@ namespace CIS_501_Final_Project
                 ArrayList Instructors = new ArrayList();
                 ArrayList Facilities = new ArrayList();
                 bool exists = false;
-
                 while (line != null)
                 {
                     //Course

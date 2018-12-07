@@ -12,13 +12,6 @@ namespace CIS_501_Final_Project
         Semester local;
         Semester ksis;
 
-        Load load;
-        Verify verify;
-        Reload reload;
-        Clear clear;
-        About about;
-
-        string verifystr;
         UserInterface ui;
 
         public Presenter(UserInterface ui)
@@ -27,28 +20,30 @@ namespace CIS_501_Final_Project
         }
         public void LoadLocal(string filename)
         {
-            try {
-                load = new Load();
-                local = load.Execute(filename);
-                ui.ShowLocalFilename(filename);
+            Load load = new Load(filename);
+            try
+            {
+                local = load.Execute();
             }
-            catch (Exception) { ui.ShowUser("Bad Local File"); }
-            
+            catch (FormatException) { ui.ShowUser("Bad Local File"); }
+            ui.ShowLocalFilename(filename);
+
         }
 
         public void Verify(string filename)
         {
+            Load load = new Load(filename);
+            ksis = load.Execute();
             try
             {
-                verify = new Verify(local, ksis);
-                string vstr = verify.Execute();
                 if (local != null && ksis != null)
                 {
-                    ui.ShowKsisFilename(filename);
-                    ui.ShowVerify(vstr);
+                    Verify verify = new Verify(local, ksis);
+                    string vstr = verify.Execute();
+                    ui.ShowVerify(vstr, filename);
                 }
             }
-            catch(Exception) { ui.ShowUser("Bad KSIS File"); }
+            catch (FormatException) { ui.ShowUser("Bad KSIS File"); }
         }
 
         public void Reload(string localFile, string KsisFile)
@@ -66,10 +61,10 @@ namespace CIS_501_Final_Project
 
         public void About()
         {
-            about = new About();
-            string[] versions = about.Execute();
-            string version = versions[0];
-            string versionDate = versions[1];
+            About about = new About();
+            string[] versionData = about.Execute();
+            string version = versionData[0];
+            string versionDate = versionData[1];
             ui.DisplayVersions(version, versionDate);
         }
     }

@@ -18,5 +18,10 @@ namespace CIS_501_Final_Project
             this.Name = Name;
             this.Year = Year;
         }
+
+        public bool Equals(Semester other)
+        {
+            return Name.Equals(other.Name) && Year == other.Year;
+        }
     }
 }

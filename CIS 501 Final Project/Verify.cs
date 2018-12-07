@@ -19,11 +19,44 @@ namespace CIS_501_Final_Project
         public string Execute()
         {
             string output = "";
+            ArrayList newLocal = new ArrayList();
+            ArrayList newKSIS = new ArrayList();
 
             ArrayList equalSections = new ArrayList();
-            foreach (Section s1 in local.Schedule)
-                foreach (Section s2 in ksis.Schedule)
-                    if (!s1.Equals(s2)) equalSections.Add(s1);
+            foreach (Section s1 in local.Sections)
+            {
+                bool exists = false;
+                bool existsSame = false;
+                foreach (Section s2 in ksis.Sections)
+                    if (s1.Cor.Subject.Equals(s2.Cor.Subject) && s1.Cor.CatalogNbr == s2.Cor.CatalogNbr && s1.SectionNumber.Equals(s2.SectionNumber))
+                    {
+                        exists = true;
+                        if (s1.Equals(s2))
+                            existsSame = true;
+                    }
+                if (!exists) newLocal.Add(s1);
+                if(exists && !existsSame) output += "Course " + s1.Cor.ToString() + " Section " + s1.SectionNumber + " has been changed!" + Environment.NewLine;
+            }
+
+            foreach (Section s2 in ksis.Sections)
+            {
+                bool exists = false;
+                foreach (Section s1 in local.Sections)
+                    if (s1.Cor.Subject.Equals(s2.Cor.Subject) && s1.Cor.CatalogNbr == s2.Cor.CatalogNbr && s1.SectionNumber.Equals(s2.SectionNumber))
+                        exists = true;
+                if (!exists) newKSIS.Add(s2);
+            }
+
+
+            foreach (Section s in newLocal)
+                output += "Course " + s.Cor.ToString() + " Section " + s.SectionNumber + " was not found in the KSIS file!" + Environment.NewLine;
+
+            foreach (Section s in newKSIS)
+                output += "Course " + s.Cor.ToString() + " Section " + s.SectionNumber + " was not found in the Local file!" + Environment.NewLine;
+
+            output.Trim();
+
+            if (output.Equals("")) output = "Verification Success!";
 
             return output;
         }

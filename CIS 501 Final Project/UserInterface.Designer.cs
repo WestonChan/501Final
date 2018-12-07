@@ -66,14 +66,14 @@
             // uxOpenFile
             // 
             this.uxOpenFile.Name = "uxOpenFile";
-            this.uxOpenFile.Size = new System.Drawing.Size(131, 22);
-            this.uxOpenFile.Text = "Load Local";
+            this.uxOpenFile.Size = new System.Drawing.Size(180, 22);
+            this.uxOpenFile.Text = "Load Local File";
             this.uxOpenFile.Click += new System.EventHandler(this.uxOpenFile_Click);
             // 
             // uxVerify
             // 
             this.uxVerify.Name = "uxVerify";
-            this.uxVerify.Size = new System.Drawing.Size(131, 22);
+            this.uxVerify.Size = new System.Drawing.Size(180, 22);
             this.uxVerify.Text = "Verify";
             this.uxVerify.Click += new System.EventHandler(this.uxVerify_Click);
             // 
@@ -83,10 +83,6 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.uxAbout_Click);
-            // 
-            // uxOpenDialog
-            // 
-            this.uxOpenDialog.FileName = "uxOpenDialog";
             // 
             // uxClear
             // 
