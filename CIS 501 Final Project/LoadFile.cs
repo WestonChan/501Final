@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CIS_501_Final_Project
 {
-    class LoadFile : CSV_Operations
+    class LoadFile
     {
         public LoadFile(string filename, out Semester local)
         {

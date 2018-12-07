@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CIS_501_Final_Project
 {
-    class Verify : CSV_Operations
+    class Verify
     {
         public Verify (string filename, out Semester ksis)
         {

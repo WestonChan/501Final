@@ -11,7 +11,6 @@ namespace CIS_501_Final_Project
     {
         Semester local;
         Semester ksis;
-        CSV_Operations op = new CSV_Operations();
         UserInterface ui;
         public Presenter(UserInterface ui)
         {

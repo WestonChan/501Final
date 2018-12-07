@@ -48,7 +48,6 @@
     <Compile Include="About.cs" />
     <Compile Include="Clear.cs" />
     <Compile Include="Course.cs" />
-    <Compile Include="CSV Operations.cs" />
     <Compile Include="Facility.cs" />
     <Compile Include="Instructor.cs" />
     <Compile Include="LoadFile.cs" />
