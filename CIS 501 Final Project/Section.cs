@@ -50,7 +50,7 @@ namespace CIS_501_Final_Project
 
             Teach.Sections.Add(this);
             Place.Sections.Add(this);
-            Sem.Schedule.Add(this);
+            Sem.Sections.Add(this);
             Cor.Sections.Add(this);
         }
     }

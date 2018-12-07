@@ -50,7 +50,7 @@
     <Compile Include="Course.cs" />
     <Compile Include="Facility.cs" />
     <Compile Include="Instructor.cs" />
-    <Compile Include="LoadFile.cs" />
+    <Compile Include="Load.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

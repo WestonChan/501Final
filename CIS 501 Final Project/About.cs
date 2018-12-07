@@ -9,9 +9,14 @@ namespace CIS_501_Final_Project
     class About
     {
         private Version v = new Version();
-        public About(out string[] versions)
+        public About()
         {
-            versions = new string[] { v.VersionType, v.VersionDate };
+
+        }
+
+        public string[] Execute()
+        {
+            return new string[] { v.VersionType, v.VersionDate };
         }
 
 

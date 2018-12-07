@@ -21,8 +21,8 @@ namespace CIS_501_Final_Project
             string output = "";
 
             ArrayList equalSections = new ArrayList();
-            foreach (Section s1 in local.Schedule)
-                foreach (Section s2 in ksis.Schedule)
+            foreach (Section s1 in local.Sections)
+                foreach (Section s2 in ksis.Sections)
                     if (!s1.Equals(s2)) equalSections.Add(s1);
 
             return output;
