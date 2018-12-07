@@ -9,18 +9,11 @@ namespace CIS_501_Final_Project
 {
     class Instructor
     {
-        private string name;
-        private ArrayList sections;
-        public Instructor(string name)
+        public string Name;
+        public ArrayList Sections = new ArrayList();
+        public Instructor(string Name)
         {
-            this.name = name;
-        }
-        public string Name { get => name; set => name = value; }
-        public ArrayList Sections { get => sections;}
-
-        public void AddSection(Section s)
-        {
-            Sections.Add(s);
+            this.Name = Name;
         }
     }
 }

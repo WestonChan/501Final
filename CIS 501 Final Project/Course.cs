@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace CIS_501_Final_Project
 {
@@ -11,6 +12,6 @@ namespace CIS_501_Final_Project
         public string Subject;
         public int CatalogNbr;
         public string ClassDescr;
-        public Section section;
+        public ArrayList Sections = new ArrayList();
     }
 }

@@ -21,11 +21,14 @@ namespace CIS_501_Final_Project
         public int UnitsMax;
         public string ClassAssnComponent;
 
-        Instructor teach;
+        public Instructor Teach;
+        public Facility Place;
+        public Semester Sem;
+        public Course Cor;
 
         public Section(string SectionNumber, string Consent, int EnrlCap, string TopicDescr, string MeetingStartDt,
             string MeetingEndDt, string MeetingTimeStart, string MeetingTimeEnd, bool[] Days, int UnitsMin,
-            int UnitsMax, string ClassAssnComponent, Instructor i)
+            int UnitsMax, string ClassAssnComponent, Instructor Teach, Facility Place, Semester Sem, Course Cor)
         {
             this.SectionNumber = SectionNumber;
             this.Consent = Consent;
@@ -40,8 +43,14 @@ namespace CIS_501_Final_Project
             this.UnitsMax = UnitsMax;
             this.ClassAssnComponent = ClassAssnComponent;
 
-            teach = i;
-            i.AddSection(this);
+            this.Teach = Teach;
+            Teach.AddSection(this);
+
+            this.Place = Place;
+
+            this.Sem = Sem;
+
+            this.Cor = Cor;
         }
     }
 }
