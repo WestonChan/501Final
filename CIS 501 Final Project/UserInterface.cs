@@ -47,13 +47,26 @@ namespace CIS_501_Final_Project
         {
             MessageBox.Show(text);
         }
-        public void ShowLocalFilename(string filename)
+        public void ShowLocalFilename(string path)
         {
-            uxLocalPath.Text = filename;
+            uxLocalPath.Text = path;
         }
-        public void ShowKsisFilename(string filename)
+        public void ShowKsisFilename(string path)
         {
-            uxLocalPath.Text = filename;
+            uxKsisPath.Text = path;
+        }
+
+        public void DisplayVersions(string version, string versionDate)
+        {
+            uxText.Text = uxText.Text + "\nCSV Version: " + version
+                + "\nCSV Version Date: " + versionDate;
+        }
+
+        public void ClearUI()
+        {
+            uxLocalPath.Text = "";
+            uxKsisPath.Text = "";
+            uxText.Text = "";
         }
     }
 }
