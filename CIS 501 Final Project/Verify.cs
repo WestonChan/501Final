@@ -8,9 +8,10 @@ namespace CIS_501_Final_Project
 {
     class Verify
     {
-        public Verify (string filename, out Semester ksis)
+        public Verify (Semester local, Semester ksis, out string output)
         {
-            ksis = null;
+            string tempOut = "";
+            output = tempOut;
         }
     }
 }

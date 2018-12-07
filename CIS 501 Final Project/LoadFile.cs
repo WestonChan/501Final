@@ -10,7 +10,7 @@ namespace CIS_501_Final_Project
 {
     class LoadFile
     {
-        public LoadFile(string filename, out Semester local)
+        public LoadFile(string filename, out Semester Sem)
         {
             using (StreamReader sr = new StreamReader(filename))
             {
@@ -21,7 +21,6 @@ namespace CIS_501_Final_Project
                 //Get to first line
                 line = sr.ReadLine();
                 line = sr.ReadLine();
-                int huala = 3;
                 ArrayList Courses = new ArrayList();
                 ArrayList Instructors = new ArrayList();
                 ArrayList Facilities = new ArrayList();
@@ -89,7 +88,7 @@ namespace CIS_501_Final_Project
                     Section Sect = new Section(Section, Consent, EnrlCap, TopicDescr, MeetingStartDt, MeetingEndDt,
                         MeetingTimeStart, MeetingTimeEnd, Days, UnitsMin, UnitsMax, ClassAssnComponent, tempInstructor, tempFacility, newSem, tempCourse);
                 }
-                local = newSem;
+                Sem = newSem;
             }
         }
     }
