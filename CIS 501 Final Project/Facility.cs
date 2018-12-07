@@ -17,5 +17,10 @@ namespace CIS_501_Final_Project
             this.Building = Building;
             this.Room = Room;
         }
+
+        public bool Equals(Facility other)
+        {
+            return Building.Equals(Building) && Room.Equals(Room);
+        }
     }
 }

@@ -15,5 +15,10 @@ namespace CIS_501_Final_Project
         {
             this.Name = Name;
         }
+
+        public bool Equals(Instructor other)
+        {
+            return Name == other.Name;
+        }
     }
 }

@@ -53,5 +53,20 @@ namespace CIS_501_Final_Project
             Sem.Schedule.Add(this);
             Cor.Sections.Add(this);
         }
+
+        public bool Equals(Section other)
+        {
+            return Cor.Equals(other.Cor) && SectionNumber.Equals(other.SectionNumber) && Consent.Equals(other.Consent) &&
+                EnrlCap == other.EnrlCap && TopicDescr.Equals(other.TopicDescr) && MeetingStartDt.Equals(other.MeetingStartDt) &&
+                MeetingEndDt.Equals(other.MeetingEndDt) && MeetingTimeStart.Equals(other.MeetingTimeStart) &&
+                MeetingTimeEnd.Equals(other.MeetingTimeEnd) && Enumerable.SequenceEqual(Days, other.Days) && UnitsMin == other.UnitsMin &&
+                UnitsMax == other.UnitsMax && ClassAssnComponent.Equals(other.ClassAssnComponent) && Teach.Equals(other.Teach) &&
+                Place.Equals(other.Place) && Sem.Equals(other.Sem);
+        }
+
+        public override string ToString()
+        {
+            return "Section " + Cor.ToString() + " Section " + SectionNumber;
+        }
     }
 }

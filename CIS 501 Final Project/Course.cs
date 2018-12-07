@@ -20,5 +20,15 @@ namespace CIS_501_Final_Project
             this.CatalogNbr = CatalogNbr;
             this.ClassDescr = ClassDescr;
         }
+
+        public bool Equals(Course other)
+        {
+            return Subject == other.Subject && CatalogNbr == other.CatalogNbr && ClassDescr == other.ClassDescr;
+        }
+
+        public override string ToString()
+        {
+            return Subject + " " + CatalogNbr;
+        }
     }
 }
