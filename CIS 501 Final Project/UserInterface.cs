@@ -31,17 +31,22 @@ namespace CIS_501_Final_Project
 
         private void uxVerify_Click(object sender, EventArgs e)
         {
-
+            if(uxOpenDialog.ShowDialog() == DialogResult.OK)
+            {
+                p.Verify(uxOpenDialog.FileName);
+            }
         }
 
         private void uxReload_Click(object sender, EventArgs e)
         {
-
+            string local = uxLocalPath.Text;
+            string ksis = uxKsisPath.Text;
+            p.Reload(local, ksis);
         }
 
         private void uxClear_Click(object sender, EventArgs e)
         {
-
+            p.Clear();
         }
         public void ShowUser(string text)
         {
