@@ -48,9 +48,15 @@ namespace CIS_501_Final_Project
 
         public void Reload(string localFile, string KsisFile)
         {
-            LoadLocal(localFile);
-            Verify(KsisFile);
-            ui.ShowReload();
+            if (!localFile.Equals(""))
+            {
+                LoadLocal(localFile);
+                if (!KsisFile.Equals(""))
+                {
+                    Verify(KsisFile);
+                    ui.ShowReload();
+                }
+            }
         }
 
         public void Clear()
