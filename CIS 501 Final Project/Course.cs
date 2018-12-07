@@ -13,5 +13,12 @@ namespace CIS_501_Final_Project
         public int CatalogNbr;
         public string ClassDescr;
         public ArrayList Sections = new ArrayList();
+
+        public Course(string Subject, int CatalogNbr, string ClassDescr)
+        {
+            this.Subject = Subject;
+            this.CatalogNbr = CatalogNbr;
+            this.ClassDescr = ClassDescr;
+        }
     }
 }

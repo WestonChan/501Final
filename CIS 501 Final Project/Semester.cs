@@ -11,14 +11,12 @@ namespace CIS_501_Final_Project
     {
         public string Name;
         public int Year;
-        public Section Sect;
         public ArrayList Sections = new ArrayList();
 
-        public Semester(string Name, int Year, Section Sect)
+        public Semester(string Name, int Year)
         {
             this.Name = Name;
             this.Year = Year;
-            this.Sect = Sect;
         }
     }
 }

@@ -44,12 +44,8 @@ namespace CIS_501_Final_Project
             this.ClassAssnComponent = ClassAssnComponent;
 
             this.Teach = Teach;
-            Teach.AddSection(this);
-
             this.Place = Place;
-
             this.Sem = Sem;
-
             this.Cor = Cor;
         }
     }

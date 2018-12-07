@@ -12,7 +12,7 @@ namespace CIS_501_Final_Project
         public string Building;
         public int Room;
         public ArrayList Sections = new ArrayList();
-        public Facility(string Building, int Room)
+        private Facility(string Building, int Room)
         {
             this.Building = Building;
             this.Room = Room;
