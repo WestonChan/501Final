@@ -22,7 +22,7 @@ namespace CIS_501_Final_Project
                 new LoadFile(filename, out local);
                 ui.ShowLocalFilename(filename);
             }
-            catch (Exception) { ui.ShowUser("Bad File"); }
+            catch (Exception) { ui.ShowUser("Bad Local File"); }
             
         }
 
@@ -33,7 +33,20 @@ namespace CIS_501_Final_Project
                 new Verify(filename, out ksis);
                 ui.ShowKsisFilename(filename);
             }
-            catch(Exception) { ui.ShowUser("Bad File"); }
+            catch(Exception) { ui.ShowUser("Bad KSIS File"); }
+        }
+
+        public void Reload(string localFile, string KsisFile)
+        {
+            LoadLocal(localFile);
+            Verify(KsisFile);
+            ui.ShowReload();
+        }
+
+        public void Clear()
+        {
+            new Clear();
+            ui.ClearUI();
         }
 
         public void About()

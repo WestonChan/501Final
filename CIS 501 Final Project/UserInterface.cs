@@ -24,24 +24,29 @@ namespace CIS_501_Final_Project
         {
             if (uxOpenDialog.ShowDialog() == DialogResult.OK)
             {
-                p.loadLocal(uxOpenDialog.FileName);
+                p.LoadLocal(uxOpenDialog.FileName);
             }
 
         }
 
         private void uxVerify_Click(object sender, EventArgs e)
         {
-
+            if(uxOpenDialog.ShowDialog() == DialogResult.OK)
+            {
+                p.Verify(uxOpenDialog.FileName);
+            }
         }
 
         private void uxReload_Click(object sender, EventArgs e)
         {
-
+            string local = uxLocalPath.Text;
+            string ksis = uxKsisPath.Text;
+            p.Reload(local, ksis);
         }
 
         private void uxClear_Click(object sender, EventArgs e)
         {
-
+            p.Clear();
         }
         public void ShowUser(string text)
         {
@@ -56,10 +61,9 @@ namespace CIS_501_Final_Project
             uxKsisPath.Text = path;
         }
 
-        public void DisplayVersions(string version, string versionDate)
+        public void ShowReload()
         {
-            uxText.Text = uxText.Text + "\nCSV Version: " + version
-                + "\nCSV Version Date: " + versionDate;
+            uxText.Text = uxText.Text + "\nSuccessfully reloaded files.";
         }
 
         public void ClearUI()
@@ -68,5 +72,12 @@ namespace CIS_501_Final_Project
             uxKsisPath.Text = "";
             uxText.Text = "";
         }
+
+        public void DisplayVersions(string version, string versionDate)
+        {
+            uxText.Text = uxText.Text + "\nCSV Version: " + version
+                + "\nCSV Version Date: " + versionDate;
+        }
+
     }
 }
