@@ -50,7 +50,7 @@ namespace CIS_501_Final_Project
 
         public void Clear()
         {
-            new Clear();
+            new Clear(out local, out ksis);
             ui.ClearUI();
         }
 
