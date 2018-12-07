@@ -21,7 +21,7 @@ namespace CIS_501_Final_Project
                 //Get to first line
                 line = sr.ReadLine();
                 line = sr.ReadLine();
-
+                int huala = 3;
                 ArrayList Courses = new ArrayList();
                 ArrayList Instructors = new ArrayList();
                 ArrayList Facilities = new ArrayList();
@@ -34,17 +34,19 @@ namespace CIS_501_Final_Project
                     string Subject = tokens[0];
                     int CatalogNbr = Convert.ToInt32(tokens[1]);
                     string ClassDescr = tokens[2];
+
                     //Instructor
                     string InstructorName = tokens[4] + tokens[5];
                     InstructorName = InstructorName.Substring(1, InstructorName.Length - 2);
+
                     //Facility
                     string Building = "";
-                    int Room = -1;
-                    for(int i = 0; i < tokens[11].Length; i++)
-                        if (Char.IsDigit(tokens[11][i])) Building += tokens[11][i];
-                        else if (Room == -1)
-                            Room = Convert.ToInt32(tokens[11].Substring(i));
-                    if (Room == -1) Room = 0;
+                    string Room = "";
+                    for (int i = 0; i < tokens[11].Length; i++)
+                        if (!Char.IsDigit(tokens[11][i])) Building += tokens[11][i];
+                        else if (Room.Equals("") && !tokens[11].Substring(i).Equals(""))
+                            Room = tokens[11].Substring(i);
+
                     //Section
                     string Section = tokens[3];
                     string Consent = tokens[6];
@@ -65,7 +67,7 @@ namespace CIS_501_Final_Project
                     Course tempCourse = null;
                     Instructor tempInstructor = null;
                     Facility tempFacility = null;
-
+                    
                     //Find the Course indicated from file
                     foreach (Course c in Courses)
                         if (!exists && c.Subject.Equals(Subject) && c.CatalogNbr == CatalogNbr && c.ClassDescr.Equals(ClassDescr)) { exists = true; tempCourse = c; }
@@ -80,7 +82,7 @@ namespace CIS_501_Final_Project
 
                     //Find the Facility indicated from file
                     foreach (Facility f in Facilities)
-                        if (!exists && f.Building.Equals(Building) && f.Room == Room) { exists = true; tempFacility = f; }
+                        if (!exists && f.Building.Equals(Building) && f.Room.Equals(Room)) { exists = true; tempFacility = f; }
                     if (!exists) tempFacility = new Facility(Building, Room);
 
                     //Create a Section
