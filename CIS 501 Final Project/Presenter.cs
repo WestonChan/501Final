@@ -11,6 +11,7 @@ namespace CIS_501_Final_Project
     {
         Semester local;
         Semester ksis;
+        string verifystr;
         UserInterface ui;
         public Presenter(UserInterface ui)
         {
@@ -30,8 +31,12 @@ namespace CIS_501_Final_Project
         {
             try
             {
-                new Verify(filename, out ksis);
-                ui.ShowKsisFilename(filename);
+                new LoadFile(filename, out ksis);
+                if (local != null && ksis != null)
+                {
+                    new Verify(local, ksis, out verifystr);
+                    ui.ShowKsisFilename(filename);
+                }
             }
             catch(Exception) { ui.ShowUser("Bad KSIS File"); }
         }
