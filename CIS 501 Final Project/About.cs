@@ -8,5 +8,12 @@ namespace CIS_501_Final_Project
 {
     class About
     {
+        private Version v = new Version();
+        public About(out string[] versions)
+        {
+            versions = new string[] { v.VersionType, v.VersionDate };
+        }
+
+
     }
 }

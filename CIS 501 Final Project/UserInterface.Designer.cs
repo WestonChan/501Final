@@ -39,7 +39,7 @@
             this.uxLabelLocal = new System.Windows.Forms.Label();
             this.uxLabelKSIS = new System.Windows.Forms.Label();
             this.uxLocalPath = new System.Windows.Forms.TextBox();
-            this.uxKSISPath = new System.Windows.Forms.TextBox();
+            this.uxKsisPath = new System.Windows.Forms.TextBox();
             this.uxText = new System.Windows.Forms.TextBox();
             this.uxOpenMenu.SuspendLayout();
             this.SuspendLayout();
@@ -132,12 +132,12 @@
             this.uxLocalPath.Size = new System.Drawing.Size(283, 20);
             this.uxLocalPath.TabIndex = 5;
             // 
-            // uxKSISPath
+            // uxKsisPath
             // 
-            this.uxKSISPath.Location = new System.Drawing.Point(490, 29);
-            this.uxKSISPath.Name = "uxKSISPath";
-            this.uxKSISPath.Size = new System.Drawing.Size(298, 20);
-            this.uxKSISPath.TabIndex = 6;
+            this.uxKsisPath.Location = new System.Drawing.Point(490, 29);
+            this.uxKsisPath.Name = "uxKsisPath";
+            this.uxKsisPath.Size = new System.Drawing.Size(298, 20);
+            this.uxKsisPath.TabIndex = 6;
             // 
             // uxText
             // 
@@ -154,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.uxText);
-            this.Controls.Add(this.uxKSISPath);
+            this.Controls.Add(this.uxKsisPath);
             this.Controls.Add(this.uxLocalPath);
             this.Controls.Add(this.uxLabelKSIS);
             this.Controls.Add(this.uxLabelLocal);
@@ -183,7 +183,7 @@
         private System.Windows.Forms.Label uxLabelLocal;
         private System.Windows.Forms.Label uxLabelKSIS;
         private System.Windows.Forms.TextBox uxLocalPath;
-        private System.Windows.Forms.TextBox uxKSISPath;
+        private System.Windows.Forms.TextBox uxKsisPath;
         private System.Windows.Forms.ToolStripMenuItem uxVerify;
         private System.Windows.Forms.TextBox uxText;
     }

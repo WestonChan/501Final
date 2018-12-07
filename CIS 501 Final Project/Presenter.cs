@@ -35,5 +35,13 @@ namespace CIS_501_Final_Project
             }
             catch(Exception) { ui.ShowUser("Bad File"); }
         }
+
+        public void About()
+        {
+            new About(out string[] versions);
+            string version = versions[0];
+            string versionDate = versions[1];
+            ui.DisplayVersions(version, versionDate);
+        }
     }
 }
